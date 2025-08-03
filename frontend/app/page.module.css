@@ -1,0 +1,91 @@
+/* app/page.module.css */
+.main {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+  }
+  .container {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .title {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+  .description {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+  .form {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 2rem;
+  }
+  .input {
+    flex-grow: 1;
+    padding: 12px 15px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  .button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  .button:hover {
+    background-color: #005bb5;
+  }
+  .button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  .results {
+    width: 100%;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+  }
+  .tabs {
+    display: flex;
+    background-color: #e9ecef;
+  }
+  .tabs button {
+    padding: 15px 20px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 1rem;
+    border-bottom: 3px solid transparent;
+  }
+  .tabs .activeTab {
+    border-bottom: 3px solid #0070f3;
+    font-weight: bold;
+  }
+  .content {
+    padding: 20px;
+  }
+  .content pre {
+    white-space: pre-wrap; /* Allows text to wrap */
+    word-wrap: break-word; /* Breaks long words */
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .error {
+    color: red;
+    margin-top: 1rem;
+  }
