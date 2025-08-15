@@ -129,7 +129,7 @@ const PersonaDialog = ({ session, onPersonaUpdate }) => {
                 const { data: { session: currentSession } } = await supabase.auth.getSession();
                 if (!currentSession) return;
 
-                const response = await fetch(`http://localhost:8080/api/v1/persona/${session.user.id}`, {
+                const response = await fetch(`https://hajirehan.store/api-ai-dig/v1/persona/${session.user.id}`, {
                     headers: { 'Authorization': `Bearer ${currentSession.access_token}` }
                 });
                 const data = await response.json();
@@ -145,7 +145,7 @@ const PersonaDialog = ({ session, onPersonaUpdate }) => {
             const { data: { session: currentSession } } = await supabase.auth.getSession();
             if (!currentSession) throw new Error("Sesi tidak valid. Silakan login kembali.");
 
-            const response = await fetch('http://localhost:8080/api/v1/persona', {
+            const response = await fetch('https://hajirehan.store/api-ai-dig/v1/persona', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -217,7 +217,7 @@ export default function Home() {
     useEffect(() => {
         const fetchInitialData = async (currentSession) => {
             if (!currentSession) return;
-            const response = await fetch(`http://localhost:8080/api/v1/persona/${currentSession.user.id}`, {
+            const response = await fetch(`https://hajirehan.store/api-ai-dig/v1/persona/${currentSession.user.id}`, {
                 headers: { 'Authorization': `Bearer ${currentSession.access_token}` }
             });
             const data = await response.json();
@@ -246,7 +246,7 @@ export default function Home() {
         setIsLoading(true);
         setResult(null);
         try {
-            const response = await fetch('http://localhost:8080/api/v1/generate', {
+            const response = await fetch('https://hajirehan.store/api-ai-dig/v1/generate', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -278,8 +278,8 @@ export default function Home() {
             <main className="flex items-center justify-center min-h-screen bg-slate-50">
                 <Card className="w-full max-w-md mx-4">
                     <CardHeader className="text-center">
-                        <CardTitle className="text-2xl">Selamat Datang di Aetherium</CardTitle>
-                        <CardDescription>Masuk untuk mengakses co-pilot AI Anda</CardDescription>
+                        <CardTitle className="text-2xl">Welcome to Atherium</CardTitle>
+                        <CardDescription>Sign in to access your co-pilot AI</CardDescription>
                     </CardHeader>
                     <CardContent>
                         <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} providers={['google', 'github']} theme="light" />

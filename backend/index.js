@@ -9,7 +9,7 @@ require('dotenv').config();
 
 // Inisialisasi Aplikasi Express
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3006;
 
 // Middleware
 app.use(cors());
@@ -25,7 +25,7 @@ const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANO
 
 
 // --- Endpoint Baru: Feedback Loop ---
-app.post('/api/v1/feedback', async (req, res) => {
+app.post('/api-ai-dig/v1/feedback', async (req, res) => {
     const { userId, platform, content } = req.body;
 
     if (!userId || !platform || !content) {
@@ -58,7 +58,7 @@ app.post('/api/v1/feedback', async (req, res) => {
 });
 
 // --- Endpoint Generate Utama ---
-app.post('/api/v1/generate', async (req, res) => {
+app.post('/api-ai-dig/v1/generate', async (req, res) => {
     try {
         const { url, userId } = req.body;
         if (!url) return res.status(400).json({ error: 'URL is required' });
@@ -214,7 +214,7 @@ app.post('/api/v1/generate', async (req, res) => {
 });
 
 // GET: Mengambil persona pengguna saat ini
-app.get('/api/v1/persona/:userId', async (req, res) => {
+app.get('/api-ai-dig/v1/persona/:userId', async (req, res) => {
     const supabase = createAuthenticatedClient(req); // Gunakan klien terautentikasi
     const { userId } = req.params;
     if (!userId) return res.status(400).json({ error: 'User ID is required.' });
@@ -236,7 +236,7 @@ app.get('/api/v1/persona/:userId', async (req, res) => {
 });
 
 // POST: Membuat atau memperbarui persona pengguna
-app.post('/api/v1/persona', async (req, res) => {
+app.post('/api-ai-dig/v1/persona', async (req, res) => {
     const supabase = createAuthenticatedClient(req); // Gunakan klien terautentikasi
     const { userId, brandVoice, targetAudience, contentGoal } = req.body;
     if (!userId) return res.status(400).json({ error: 'User ID is required.' });
